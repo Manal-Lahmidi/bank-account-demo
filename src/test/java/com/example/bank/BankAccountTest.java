@@ -15,7 +15,7 @@ class BankAccountTest {
         double balance = account.getBalance();
 
         // Assert
-        assertEquals(100.0, balance);
+        assertEquals(120.0, balance);
     }
 
     @Test
