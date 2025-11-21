@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # machine virtuelle utilisée
 
     steps:
       # 1) Récupérer le code
@@ -23,7 +23,7 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      # 3) Build + tests + JaCoCo (si tu l'as ajouté au pom.xml)
+      # 3) Build + tests + JaCoCo coverage
       - name: Build and run tests
         run: mvn -B clean verify
 
@@ -35,7 +35,7 @@ jobs:
           name: test-reports
           path: target/surefire-reports
 
-      # 5) Sauvegarder le rapport de couverture JaCoCo (optionnel)
+      # 5) Sauvegarder le rapport de couverture JaCoCo
       - name: Upload coverage report
         if: always()
         uses: actions/upload-artifact@v4
